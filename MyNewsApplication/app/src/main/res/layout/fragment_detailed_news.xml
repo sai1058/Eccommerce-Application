@@ -1,0 +1,58 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailedNewsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/detailedImageView"
+            android:layout_width="378dp"
+            android:layout_height="245dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/detailedTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="@string/Title_of_the_News_Article"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/detailedDescriptionTextView"
+            android:layout_width="381dp"
+            android:layout_height="137dp"
+            android:text="@string/description_news"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/detailedAuthorTextView"
+            android:layout_width="382dp"
+            android:layout_height="67dp"
+            android:text="@string/author_name"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/detailedContentTextView"
+            android:layout_width="381dp"
+            android:layout_height="134dp"
+            android:text="@string/content"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/detailedPublishedDateTextView"
+            android:layout_width="382dp"
+            android:layout_height="53dp"
+            android:text="@string/published_date"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>

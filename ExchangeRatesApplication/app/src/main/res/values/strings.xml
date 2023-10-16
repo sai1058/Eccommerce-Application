@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ExchangeRatesApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="click_button">Login</string>
+    <string name="enter_your_data">Enter Data</string>
+    <string name="convert_rates">Convert Rates</string>
+</resources>

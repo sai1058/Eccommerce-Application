@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyNewsApplication</string>
+
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="click_button">Login</string>
+    <string name="enter_your_data">Enter Data</string>
+    <string name="enter_your_search_item">Enter Search Item</string>
+    <string name="search_item">Search</string>
+    <string name="Title_of_the_News_Article">Title</string>
+    <string name="description_news">Description</string>
+    <string name="author_name">Author</string>
+    <string name="published_date">Published Date</string>
+    <string name="content">Content</string>
+</resources>
