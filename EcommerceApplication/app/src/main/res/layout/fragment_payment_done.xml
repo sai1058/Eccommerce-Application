@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBlue"
+    android:id="@+id/payment_done_fragment"
+    tools:context=".fragments.PaymentDoneFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_marginTop="350sp"
+        android:text="@string/order_has_been_placed" />
+
+    <TextView
+        android:id="@+id/clickOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400sp"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textStyle="italic"
+        android:text="@string/click_here_to_go_home" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="280sp"
+        android:src="@drawable/baseline_cloud_done_24" />
+
+
+</FrameLayout>
