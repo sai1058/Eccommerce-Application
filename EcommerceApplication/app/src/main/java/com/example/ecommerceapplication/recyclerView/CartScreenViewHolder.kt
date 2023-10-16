@@ -1,5 +1,6 @@
 package com.example.ecommerceapplication.recyclerView
 
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -14,6 +15,9 @@ import com.example.ecommerceapplication.viewModels.CartScreenViewModel
 class CartScreenViewHolder(itemView: View, itemOnClick: ItemOnClick) :
     RecyclerView.ViewHolder(itemView) {
     val count = itemView.findViewById<TextView>(R.id.count)
+    val pricing = itemView.findViewById<TextView>(R.id.price)
+    val imageView = itemView.findViewById<ImageView>(R.id.imageViewForCart)
+    val textView = itemView.findViewById<TextView>(R.id.descriptionTextViewForCart)
 
     init {
         itemView.findViewById<Button>(R.id.btnRemove).setOnClickListener {
@@ -21,13 +25,9 @@ class CartScreenViewHolder(itemView: View, itemOnClick: ItemOnClick) :
         }
     }
     fun bind(productDataList: Product) {
-        val imageView = itemView.findViewById<ImageView>(R.id.imageViewForCart)
-        val textView = itemView.findViewById<TextView>(R.id.descriptionTextViewForCart)
-        val pricing = itemView.findViewById<TextView>(R.id.price)
-
-        pricing.text = "Cost: " + productDataList.totalPrice.toString() + "$"
+        pricing.text = "Cost: " + productDataList.price * productDataList.count + "$"
         textView.text = productDataList.description
-        count.text = "Count: " + productDataList.count.toString()
+        count.text = "Count: " + productDataList.count
         Glide.with(itemView.context)
             .load(productDataList.image)
             .into(imageView)

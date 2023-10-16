@@ -16,6 +16,7 @@ class CartScreenAdapter(private val productListItems: MutableList<Product>, priv
     override fun onBindViewHolder(holder: CartScreenViewHolder, position: Int) {
         val productDataList = productListItems[position]
         holder.bind(productDataList)
+        val product = productDataList.totalPrice
     }
     override fun getItemCount(): Int {
         return productListItems.size
@@ -26,5 +27,6 @@ class CartScreenAdapter(private val productListItems: MutableList<Product>, priv
     fun removeItem(index: Int){
         productListItems.removeAt(index)
         notifyItemRemoved(index)
+        notifyDataSetChanged()
     }
 }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerceapplication.R
 import com.example.ecommerceapplication.activity.MainActivity
+import com.example.ecommerceapplication.data.CartSharedPreferencesManager
 import com.example.ecommerceapplication.data.ItemOnClick
 import com.example.ecommerceapplication.recyclerView.CartScreenAdapter
 import com.example.ecommerceapplication.data.Product
@@ -23,6 +24,8 @@ class CartScreenFragment : Fragment(), ItemOnClick {
     private var checkOutListItems: MutableList<Product> = mutableListOf()
     private lateinit var backArrow:ImageView
     private lateinit var cartViewModel: CartScreenViewModel
+    private lateinit var cartSharedPreferencesManager: CartSharedPreferencesManager
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,11 +45,16 @@ class CartScreenFragment : Fragment(), ItemOnClick {
 
         val cartScreenViewModel = (requireActivity() as MainActivity).cartScreen
 
-      //  checkOutListItems.clear()
+        cartSharedPreferencesManager = CartSharedPreferencesManager(requireContext())
+        checkOutListItems.clear()
+        checkOutListItems.addAll(cartSharedPreferencesManager.getCart())
+        cartSharedPreferencesManager.saveCart(checkOutListItems)
+
 
         if (cartScreenViewModel != null) {
             checkOutListItems.clear()
             checkOutListItems.addAll(cartScreenViewModel.selectedProducts)
+
         }
         adapter = CartScreenAdapter(checkOutListItems, this)
         recyclerView.adapter = adapter
@@ -54,8 +62,8 @@ class CartScreenFragment : Fragment(), ItemOnClick {
         adapter.notifyDataSetChanged()
 
         btnCheckoutList.setOnClickListener {
+            clearAndSaveCart()
             (activity as FragmentCommunicator).communicator(FakePaymentFragment.newInstance())
-
         }
         backArrow.setOnClickListener{
             requireActivity().supportFragmentManager.popBackStack()
@@ -77,5 +85,12 @@ class CartScreenFragment : Fragment(), ItemOnClick {
             cartViewModel.removeItem(index)
         }
         adapter.notifyDataSetChanged()
+    }
+    private fun clearAndSaveCart() {
+        // Clear the cart
+        checkOutListItems.clear()
+        adapter.notifyDataSetChanged()
+        // Save the cleared cart to SharedPreferences
+        cartSharedPreferencesManager.saveCart(checkOutListItems)
     }
 }
